@@ -8,7 +8,7 @@ See it in action:
 
 ![recording](https://raw.githubusercontent.com/a-rodin/tmux-session-spectrum/images/recording.gif)
 
-Each new session will use new color for the bottom panel, so that different sessions are
+Each new session uses new color for the bottom panel, so that different sessions are
 more easily distinguishable between each other.
 
 Also it automatically renumerates default session names, analogous to 
