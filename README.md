@@ -1,12 +1,19 @@
 # tmux-session-spectrum
 
-This is a script that makes [tmux](https://tmux.github.io/) using different panel styles
+This is a script that makes [tmux](https://tmux.github.io/) using different panel colors
 for different sessions.
 
 
 See it in action:
 
 ![recording](https://raw.githubusercontent.com/a-rodin/tmux-session-spectrum/images/recording.gif)
+
+Each new session will use new color for the bottom panel, so that different sessions are
+more easily distinguishable between each other.
+
+Also it automatically renumerates default session names, analogous to 
+[renumber-windows](http://man.openbsd.org/OpenBSD-current/man1/tmux.1#renumber-windows) for
+windows.
 
 ## Installation
 
