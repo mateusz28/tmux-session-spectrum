@@ -1,6 +1,6 @@
 # tmux-session-spectrum
 
-This is a script that makes [tmux](https://tmux.github.io/) using different panel colors
+This is a script that makes [tmux](https://tmux.github.io/) use different panel colors
 for different sessions.
 
 
