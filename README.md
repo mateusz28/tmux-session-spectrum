@@ -26,12 +26,6 @@ add to your `~/.tmux.conf` the following command:
 set-hook -g after-new-session "run-shell 'bash ~/.tmux/tmux-session-spectrum.sh'"
 ```
 
-If you want to change the default style, pass it as an environment variable:
-
-```
-set-hook -g after-new-session "run-shell 'DEFAULT_STYLE=colour4 bash ~/.tmux/tmux-session-spectrum.sh'"
-```
-
 If you want your `~/.tmux.conf` work with both older `tmux` versions that don't support
 this script and the newer ones, it can be done using `tmux` conditional directive:
 
@@ -39,3 +33,27 @@ this script and the newer ones, it can be done using `tmux` conditional directiv
 if-shell "bash -c \"[[ ! $(tmux -V | cut -d' ' -f2) < 2.3 ]]\"" "\
   set-hook -g after-new-session \"run-shell 'bash ~/.tmux-session.sh\'\""
 ```
+
+## Configuration
+
+There are two varaibles to configure.
+
+### Style Palette
+The first one is the palette. It could be configured
+by providing space-separated [colour names](https://superuser.com/a/285400/249673) as
+an environment variable `STYLES`.
+
+Example:
+```
+set-hook -g after-new-session "run-shell 'STYLES=\"colour47 colour53\" bash ~/.tmux/tmux-session-spectrum.sh'"
+```
+
+### Default Style
+The second one is the initial style from the palette. It is specified by providing `DEFAULT_STYLE` environment variable, as below:
+
+Example:
+```
+set-hook -g after-new-session "run-shell 'DEFAULT_STYLE=colour4 bash ~/.tmux/tmux-session-spectrum.sh'"
+```
+
+If no `DEFAULT_STYLE` is provided, then the first one from the palette is used.

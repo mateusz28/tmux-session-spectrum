@@ -1,6 +1,10 @@
 #!/bin/bash
 
-STYLES=(colour2 colour4 colour5 colour6 colour8 colour1 colour3)
+if [ -n "$STYLES" ]; then
+  STYLES=(${STYLES})
+else
+  STYLES=(colour2 colour4 colour5 colour6 colour8 colour1 colour3)
+fi
 DEFAULT_STYLE=${DEFAULT_STYLE:-colour2}
 
 SESSION_ID='$'$(tmux list-sessions -F "#{session_id}" | tr -d '$' | sort -nr | head -n1)
