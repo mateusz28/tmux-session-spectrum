@@ -19,7 +19,7 @@ windows.
 
 The script requires `tmux` version to be not less than 2.3.
 
-To install it copy the `tmux-session-spectru.sh` file to `~/.tmux` directory and
+To install it copy the `tmux-session-spectrum.sh` file to `~/.tmux` directory and
 add to your `~/.tmux.conf` the following command:
 
 ```
