@@ -62,7 +62,7 @@ It is specified by providing `DEFAULT_STYLE` variable. If no `DEFAULT_STYLE` is 
 first color from the palette is used.
 
 The color names used by tmux are [the following](https://superuser.com/a/285400/249673):
-![colour names](https://superuser.com/a/1104214/249673)
+![colour names](https://i.stack.imgur.com/e63et.png)
 
 Both of the variables should be added to a file `~/.tmux/plugins/tmux-session-spectrum/tmux-session-spectrum.conf`.
 
