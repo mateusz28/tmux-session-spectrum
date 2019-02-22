@@ -27,7 +27,7 @@ Add
 set -g @plugin 'a-rodin/tmux-session-spectrum'
 ```
 
-to your `~/.tmux.conf`.
+to your `~/.tmux.conf` and run `tmux source ~/.tmux.conf` or restart tmux.
 
 ### Manually
 
