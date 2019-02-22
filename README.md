@@ -55,7 +55,7 @@ if-shell "bash -c \"[[ ! $(tmux -V | cut -d' ' -f2) < 2.3 ]]\"" "\
 ## Configuration
 
 There are two varaibles to configure. The first one is the palette. It could be configured
-by providing space-separated [color names](https://superuser.com/a/285400/249673) a variable `STYLES`. The second one is the initial style from the palette. It is specified by providing `DEFAULT_STYLE`. If no `DEFAULT_STYLE` is provided, then the first one from the palette is used.
+by providing space-separated [color names](https://superuser.com/a/1104214/249673) a variable `STYLES`. The second one is the initial style from the palette. It is specified by providing `DEFAULT_STYLE`. If no `DEFAULT_STYLE` is provided, then the first one from the palette is used.
 
 Both of the variables should be added to a file `~/.tmux/plugins/tmux-session-spectrum/tmux-session-spectrum.conf`.
 
