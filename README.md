@@ -19,7 +19,19 @@ windows.
 
 The script requires `tmux` version to be not less than 2.3.
 
-To install it copy the `tmux-session-spectrum.sh` file to `~/.tmux` directory and
+### With [`tpm`](https://github.com/tmux-plugins/tpm)
+
+Add
+
+```
+set -g @plugin 'a-rodin/tmux-session-spectrum'
+```
+
+to your `~/.tmux.conf`.
+
+### Manually
+
+To install the plugin manually copy the `tmux-session-spectrum.sh` file to `~/.tmux` directory and
 add to your `~/.tmux.conf` the following command:
 
 ```
@@ -31,7 +43,7 @@ this script and the newer ones, it can be done using `tmux` conditional directiv
 
 ```
 if-shell "bash -c \"[[ ! $(tmux -V | cut -d' ' -f2) < 2.3 ]]\"" "\
-  set-hook -g after-new-session \"run-shell 'bash ~/.tmux-session.sh\'\""
+  set-hook -g after-new-session \"run-shell 'bash ~/.tmux/tmux-session-spectrum.sh\'\""
 ```
 
 ## Configuration
