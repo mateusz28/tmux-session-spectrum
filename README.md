@@ -1,6 +1,6 @@
 # tmux-session-spectrum
 
-This is a script that makes [tmux](https://tmux.github.io/) use different panel colors
+This is a [tmux](https://tmux.github.io/) plugin that sets different pane colors
 for different sessions.
 
 
@@ -29,7 +29,7 @@ set -g @plugin 'a-rodin/tmux-session-spectrum'
 
 to your `~/.tmux.conf` and run `tmux source ~/.tmux.conf` or restart tmux.
 
-### Manually
+### Manual
 
 Run
 
@@ -55,13 +55,13 @@ if-shell "bash -c \"[[ ! $(tmux -V | cut -d' ' -f2) < 2.3 ]]\"" "\
 ## Configuration
 
 There are two varaibles to configure. The first one is the palette. It could be configured
-by providing space-separated [colour names](https://superuser.com/a/285400/249673) a variable `STYLES`. The second one is the initial style from the palette. It is specified by providing `DEFAULT_STYLE`. If no `DEFAULT_STYLE` is provided, then the first one from the palette is used.
+by providing space-separated [color names](https://superuser.com/a/285400/249673) a variable `STYLES`. The second one is the initial style from the palette. It is specified by providing `DEFAULT_STYLE`. If no `DEFAULT_STYLE` is provided, then the first one from the palette is used.
 
 Both of the variables should be added to a file `~/.tmux/plugins/tmux-session-spectrum/tmux-session-spectrum.conf`.
 
 Example `tmux-session-spectrum.conf`:
 
-```sh
+```bash
 STYLES="colour47 colour53"
 DEFAULT_STYLE=colour4
 ```
