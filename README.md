@@ -31,11 +31,17 @@ to your `~/.tmux.conf` and run `tmux source ~/.tmux.conf` or restart tmux.
 
 ### Manually
 
-To install the plugin manually copy the `tmux-session-spectrum.sh` file to `~/.tmux` directory and
-add to your `~/.tmux.conf` the following command:
+Run
+
+```sh
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/a-rodin/tmux-session-spectrum ~/.tmux/plugins/tmux-session-spectrum
+```
+
+Then add the following line to your `~/.tmux.conf`:
 
 ```
-set-hook -g after-new-session "run-shell 'bash ~/.tmux/tmux-session-spectrum.sh'"
+set-hook -g after-new-session "run-shell 'bash ~/.tmux/plugins/tmux-session-spectrum/tmux-session-spectrum.sh'"
 ```
 
 If you want your `~/.tmux.conf` work with both older `tmux` versions that don't support
@@ -43,29 +49,21 @@ this script and the newer ones, it can be done using `tmux` conditional directiv
 
 ```
 if-shell "bash -c \"[[ ! $(tmux -V | cut -d' ' -f2) < 2.3 ]]\"" "\
-  set-hook -g after-new-session \"run-shell 'bash ~/.tmux/tmux-session-spectrum.sh\'\""
+  set-hook -g after-new-session \"run-shell 'bash ~/.tmux/tmux-session-spectrum/tmux-session-spectrum.sh'\""
 ```
 
 ## Configuration
 
-There are two varaibles to configure.
+There are two varaibles to configure. Both of the variables should be added to a file `tmux-session-spectrum.conf` that is located in `~/.tmux/plugins/tmux-session-spectrum` directory.
 
-### Style Palette
 The first one is the palette. It could be configured
-by providing space-separated [colour names](https://superuser.com/a/285400/249673) as
-an environment variable `STYLES`.
+by providing space-separated [colour names](https://superuser.com/a/285400/249673) a variable `STYLES`.
+
+The second one is the initial style from the palette. It is specified by providing `DEFAULT_STYLE`. If no `DEFAULT_STYLE` is provided, then the first one from the palette is used.
 
 Example:
-```
-set-hook -g after-new-session "run-shell 'STYLES=\"colour47 colour53\" bash ~/.tmux/tmux-session-spectrum.sh'"
-```
 
-### Default Style
-The second one is the initial style from the palette. It is specified by providing `DEFAULT_STYLE` environment variable, as below:
-
-Example:
+```sh
+STYLES="colour47 colour53"
+DEFAULT_STYLE=colour4
 ```
-set-hook -g after-new-session "run-shell 'DEFAULT_STYLE=colour4 bash ~/.tmux/tmux-session-spectrum.sh'"
-```
-
-If no `DEFAULT_STYLE` is provided, then the first one from the palette is used.

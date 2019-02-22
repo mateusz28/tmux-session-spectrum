@@ -1,5 +1,8 @@
 #!/bin/bash
 
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$CURRENT_DIR/tmux-session-spectrum.conf" 2>/dev/null
+
 if [ -n "$STYLES" ]; then
   STYLES=(${STYLES})
 else
