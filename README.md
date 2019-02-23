@@ -27,7 +27,7 @@ Add
 set -g @plugin 'a-rodin/tmux-session-spectrum'
 ```
 
-to your `~/.tmux.conf` and run `tmux source ~/.tmux.conf` or restart tmux.
+to your `~/.tmux.conf` and run `tmux source ~/.tmux.conf` or restart tmux. Then press `prefix` + <kbd>I</kbd>.
 
 ### Manual
 
@@ -43,7 +43,7 @@ Then add the following line to your `~/.tmux.conf`:
 set-hook -g after-new-session "run-shell 'bash ~/.tmux/plugins/tmux-session-spectrum/tmux-session-spectrum.sh'"
 ```
 
-If you want your `~/.tmux.conf` work with both older `tmux` versions that don't support
+If you want your `~/.tmux.conf` to work with both older `tmux` versions that don't support
 this script and the newer ones, it can be done using `tmux` conditional directive:
 
 ```
