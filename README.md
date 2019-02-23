@@ -34,7 +34,6 @@ to your `~/.tmux.conf` and run `tmux source ~/.tmux.conf` or restart tmux.
 Run
 
 ```sh
-mkdir -p ~/.tmux/plugins
 git clone https://github.com/a-rodin/tmux-session-spectrum ~/.tmux/plugins/tmux-session-spectrum
 ```
 
