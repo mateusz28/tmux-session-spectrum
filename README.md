@@ -63,11 +63,11 @@ first color from the palette is used.
 The color names used by tmux are [the following](https://superuser.com/a/285400/249673):
 ![colour names](https://i.stack.imgur.com/e63et.png)
 
-Both of the variables should be added to a file `~/.tmux/plugins/tmux-session-spectrum/tmux-session-spectrum.conf`.
+The variables should be added to a file `~/.tmux/plugins/tmux-session-spectrum/tmux-session-spectrum.conf`.
 
 Example `tmux-session-spectrum.conf`:
 
 ```bash
 STYLES="colour47 colour53"
-DEFAULT_STYLE=colour4
+DEFAULT_STYLE=colour53 # optional
 ```
