@@ -6,7 +6,7 @@ for different sessions.
 
 See it in action:
 
-![recording](https://raw.githubusercontent.com/a-rodin/tmux-session-spectrum/images/recording.gif)
+<img src="https://raw.githubusercontent.com/a-rodin/tmux-session-spectrum/images/recording.gif" width="589">
 
 Each new session uses new color for the bottom panel, so that different sessions are
 more easily distinguishable between each other.
@@ -61,7 +61,7 @@ It is specified by providing `DEFAULT_STYLE` variable. If no `DEFAULT_STYLE` is 
 first color from the palette is used.
 
 The color names used by tmux are [the following](https://superuser.com/a/285400/249673):
-![colour names](https://i.stack.imgur.com/e63et.png)
+<img src="https://raw.githubusercontent.com/a-rodin/tmux-session-spectrum/images/colours.gif" width="640">
 
 The variables should be added to a file `~/.tmux/plugins/tmux-session-spectrum/tmux-session-spectrum.conf`.
 
