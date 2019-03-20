@@ -9,6 +9,11 @@ else
   STYLES=(colour2 colour4 colour5 colour6 colour8 colour1 colour3)
 fi
 DEFAULT_STYLE=${DEFAULT_STYLE:-colour2}
+if [ -n "$DIR_STYLES" ]; then
+  DIR_STYLES=(${DIR_STYLES})
+else
+  DIR_STYLES=()
+fi
 
 SESSION_ID='$'$(tmux list-sessions -F "#{session_id}" | tr -d '$' | sort -nr | head -n1)
 
@@ -31,6 +36,15 @@ for ((STYLE_NUMBER = 0; STYLE_NUMBER < ${#STYLES[@]}; STYLE_NUMBER++)); do
 done
 
 STYLE=${STYLES[$(((SESSION_NUMBER + STYLE_NUMBER) % ${#STYLES[@]}))]}
+
+for ((DIR_STYLE_NUMBER = 0; DIR_STYLE_NUMBER < ${#DIR_STYLES[@]}; DIR_STYLE_NUMBER++)); do
+  DIR_PATTERN="$(echo "${DIR_STYLES[$DIR_STYLE_NUMBER]}" | cut -d: -f1)"
+  DIR_STYLE="$(echo "${DIR_STYLES[$DIR_STYLE_NUMBER]}" | cut -d: -f2)"
+  if (tmux display -p '#{pane_current_path}' | grep "$DIR_PATTERN" >/dev/null); then
+    STYLE="$DIR_STYLE"
+    break
+  fi
+done
 
 tmux set -t $SESSION_ID status-style bg=$STYLE
 tmux set -t $SESSION_ID pane-active-border-style fg=$STYLE

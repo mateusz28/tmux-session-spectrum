@@ -53,12 +53,14 @@ if-shell "bash -c \"[[ ! $(tmux -V | cut -d' ' -f2) < 2.3 ]]\"" "\
 
 ## Configuration
 
-There are two varaibles to configure.
+There are three varaibles to configure.
 
 The first one is the palette. It could be configured by providing space-separated list of color
-names as a variable `STYLES`. The second one is the initial color from the palette.
-It is specified by providing `DEFAULT_STYLE` variable. If no `DEFAULT_STYLE` is provided, then the
-first color from the palette is used.
+names as a variable `STYLES`.
+
+The second one is the initial color from the palette. It is specified by providing `DEFAULT_STYLE` variable. It is optional, ff no `DEFAULT_STYLE` is provided, then the first color from the palette is used.
+
+The third one is `DIR_STYLES` that specifies directory-specific styles. It has format `patern1:colour1 pattern2:colour2 ...`, where `pattern*` is pattern for `grep` that would be matches against the current directory name and `colour*` is the color name.
 
 The color names used by tmux are [the following](https://superuser.com/a/285400/249673):
 <img src="https://raw.githubusercontent.com/a-rodin/tmux-session-spectrum/images/colours.gif" width="640">
@@ -69,5 +71,6 @@ Example `tmux-session-spectrum.conf`:
 
 ```bash
 STYLES="colour47 colour53"
-DEFAULT_STYLE=colour53 # optional
+DIR_STYLES="tmux:colour77 rust:colour95"
+DEFAULT_STYLE=colour53
 ```
