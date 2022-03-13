@@ -50,3 +50,26 @@ tmux set -t $SESSION_ID status-style bg=$STYLE
 tmux set -t $SESSION_ID pane-active-border-style fg=$STYLE
 tmux set-hook -t $SESSION_ID after-new-window \
   "set -t $SESSION_ID pane-active-border-style fg=$STYLE"
+
+#tmux nested
+tmux bind -n M-F11 "set -q -t $SESSION_ID status-bg colour0"
+tmux bind -n M-F12 "set -q -t $SESSION_ID status-bg $STYLE"
+
+#tmux nested
+tmux bind -n C-M-k \
+	send-keys M-F12 \; \
+  set -g -t $SESSION_ID window-active-style 'fg=default,bg=default' \; \
+  unbind -n M-h \; \
+  unbind -n M-j \; \
+  unbind -n M-k \; \
+  unbind -n M-l \; \
+	set -qg prefix M-s
+tmux bind -n C-M-j \
+	send-keys M-F11 \; \
+  set -g -t $SESSION_ID window-active-style 'fg=default,bg=colour0' \; \
+  bind -n M-h select-pane -L \; \
+  bind -n M-j select-pane -D \; \
+  bind -n M-k select-pane -U \; \
+  bind -n M-l select-pane -R \; \
+	set -qg prefix M-z
+
