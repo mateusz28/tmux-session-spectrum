@@ -13,25 +13,25 @@ for map in "${ARRAY[@]}" ; do
     fi
 done
 tmux set -t $SESSION_NAME pane-active-border-style fg=$STYLE
-tmux set -t $SESSION_NAME status-style bg=$STYLE
+tmux set -t $SESSION_NAME status-style bg=default,fg=default
 
 tmux set-hook -t $SESSION_NAME after-new-window[0] \
   "set -t $SESSION_NAME pane-active-border-style fg=$STYLE"
 tmux set-hook -t $SESSION_NAME after-new-window[1] \
-  "set -t $SESSION_NAME status-style bg=$STYLE"
+  "set -t $SESSION_NAME status-style bg=default,fg=default"
 
 #tmux nested
 tmux set-hook -t $SESSION_NAME after-new-window[2]\
-  "bind -n M-F11 set -q -t $SESSION_NAME status-bg colour0"
+  "bind -n M-F11 set -q -t $SESSION_NAME status-bg $BACKGROUND_COLOR"
 tmux set-hook -t $SESSION_NAME after-new-window[3]\
   "bind -n M-F12 set -q -t $SESSION_NAME status-bg $STYLE"
 
-tmux bind -n M-F11 set -q -t $SESSION_NAME status-bg colour0
+tmux bind -n M-F11 set -q -t $SESSION_NAME status-bg $BACKGROUND_COLOR
 tmux bind -n M-F12 set -q -t $SESSION_NAME status-bg $STYLE
 #tmux nested
-ARGS_ENTER="send-keys M-F11 \; set -q status-bg $STYLE \; set-option -g window-active-style fg=default,bg=colour0 \; bind-key -n M-h select-pane -L \; bind-key -n M-j select-pane -D \; bind-key -n M-k select-pane -U \; bind-key -n M-l select-pane -R \; set-option -gq prefix M-z"
+ARGS_ENTER="send-keys M-F11 \; set -q status-bg $STYLE \; set-option -g window-active-style fg=default,bg=$BACKGROUND_COLOR \; bind-key -n M-h select-pane -L \; bind-key -n M-j select-pane -D \; bind-key -n M-k select-pane -U \; bind-key -n M-l select-pane -R \; set-option -gq prefix M-z"
 
-ARGS_EXIT="send-keys M-F12 \; set -q status-bg colour8 \; set-option -g window-active-style fg=default,bg=default \; unbind-key -n M-h \; unbind-key -n M-j \; unbind-key -n M-k \; unbind-key -n M-l \; set-option -gq prefix M-s"
+ARGS_EXIT="send-keys M-F12 \; set -q status-bg $FOREGROUND_COLOR \; set-option -g window-active-style fg=default,bg=default \; unbind-key -n M-h \; unbind-key -n M-j \; unbind-key -n M-k \; unbind-key -n M-l \; set-option -gq prefix M-s"
 
 tmux bind -n M-C-j $ARGS_ENTER
 tmux bind -n M-C-k $ARGS_EXIT
