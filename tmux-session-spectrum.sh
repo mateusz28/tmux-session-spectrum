@@ -13,7 +13,8 @@ for map in "${ARRAY[@]}" ; do
       STYLE=$VALUE
     fi
 done
-tmux set -t $SESSION_NAME pane-active-border-style fg=$STYLE
+tmux set -t $SESSION_NAME pane-active-border-style fg=$STYLE,bg=$DIM
+tmux set -t $SESSION_NAME pane-border-style bg=$DIM
 tmux set -t $SESSION_NAME status-style bg=default,fg=default
 
 tmux set-hook -t $SESSION_NAME after-new-window[0] \
