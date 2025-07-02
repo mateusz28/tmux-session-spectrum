@@ -5,6 +5,7 @@ source "$HOME/dotfiles/tmux-session-spectrum.conf" 2>/dev/null
 
 SESSION_NAME=$(tmux display-message -p '#S')
 STYLE=${DEFAULT_STYLE:-colour14}
+DIM=${DIM_COLOR:-colour7}
 for map in "${ARRAY[@]}" ; do
     KEY="${map%%:*}"
     VALUE="${map##*:}"
@@ -25,6 +26,9 @@ tmux set-hook -t $SESSION_NAME after-new-window[2]\
   "bind -n M-F11 set -q -t $SESSION_NAME status-bg default"
 tmux set-hook -t $SESSION_NAME after-new-window[3]\
   "bind -n M-F12 set -q -t $SESSION_NAME status-bg $STYLE"
+
+tmux set-option -g window-active-style fg=default,bg=terminal 
+tmux set-option -g window-style fg=default,bg=$DIM
 
 tmux bind -n M-F11 set -q -t $SESSION_NAME status-bg default
 tmux bind -n M-F12 set -q -t $SESSION_NAME status-bg $STYLE
